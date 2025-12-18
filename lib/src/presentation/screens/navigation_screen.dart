@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../controller/Home/home_controller.dart';
 import '../controller/Navigation/navigation_controller.dart';
 import 'HomeScreen/home.dart';
+import 'Notifications/notification_page.dart';
 
 class NavigationScreen extends StatelessWidget {
   const NavigationScreen({super.key});
@@ -11,14 +12,6 @@ class NavigationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navController = Get.put(NavigationController());
-    Get.put(HomeController());
-
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
 
     // icon asset paths
     final List<String> normalIcons = [
@@ -35,24 +28,21 @@ class NavigationScreen extends StatelessWidget {
       'assets/images/blue_person.png',
     ];
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Obx(() {
-          return IndexedStack(
+    return Obx(() {
+      return Scaffold(
+        backgroundColor: navController.selectedIndex.value == 1?Color(0xFF7B61FF):Colors.white,
+        body: SafeArea(
+          child: IndexedStack(
             index: navController.selectedIndex.value,
             children: const [
               Home(),
-              // NotificationPage(),
+              NotificationPage(),
               // QuestionPage(),
               // ProfilePage(),
             ],
-          );
-        }),
-      ),
-
-      bottomNavigationBar: Obx(() {
-        return Container(
+          ),
+        ),
+        bottomNavigationBar: Container(
           height: 70,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -81,8 +71,11 @@ class NavigationScreen extends StatelessWidget {
                     color: Colors.transparent,
                     border: isSelected
                         ? const Border(
-                            top: BorderSide(color: Color(0xFF2900EF), width: 4),
-                          )
+                      top: BorderSide(
+                        color: Color(0xFF2900EF),
+                        width: 4,
+                      ),
+                    )
                         : null,
                   ),
                   child: Image.asset(
@@ -95,8 +88,8 @@ class NavigationScreen extends StatelessWidget {
               );
             }),
           ),
-        );
-      }),
-    );
+        ),
+      );
+    });
   }
 }
