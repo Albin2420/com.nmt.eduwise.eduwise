@@ -10,7 +10,7 @@ class DioClient {
         onRequest: (options, handler) async {
           final token = await StorageService.getAccessToken();
 
-          if (token == null) {
+          if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';
           }
           options.headers['Content-Type'] = 'application/json';
