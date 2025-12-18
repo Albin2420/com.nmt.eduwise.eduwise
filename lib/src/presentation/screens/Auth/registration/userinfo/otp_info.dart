@@ -72,7 +72,7 @@ class OtpInfo extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 // 🖼️ Keyboy Image
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.35,
                   child: Center(
@@ -99,7 +99,10 @@ class OtpInfo extends StatelessWidget {
                     defaultPinTheme: defaultPinTheme,
                     focusedPinTheme: defaultPinTheme.copyWith(
                       decoration: BoxDecoration(
-                        border: Border.all(color: controller.activeColor, width: 2),
+                        border: Border.all(
+                          color: controller.activeColor,
+                          width: 2,
+                        ),
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
@@ -135,16 +138,15 @@ class OtpInfo extends StatelessWidget {
 
                 // ✅ Verify Button
                 Obx(
-                      () => ButtonOne(
+                  () => ButtonOne(
                     title: "Verify OTP",
                     onTap: controller.otpValid.value
                         ? () {
-                      debugPrint("OTP: ${controller.getOtp()}");
-                      // TODO: Add your OTP verification logic here
-                    }
+                            debugPrint("OTP: ${controller.getOtp()}");
+                          }
                         : () {
-                        Get.to(() => Educationifo());
-                    },
+                            Get.to(() => Educationifo());
+                          },
                   ),
                 ),
               ],
