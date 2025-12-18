@@ -17,7 +17,7 @@ class CustomDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => GestureDetector(
+      () => GestureDetector(
         onTap: () {
           _showCustomDropdown(context);
         },
@@ -41,8 +41,7 @@ class CustomDropdown extends StatelessWidget {
                       : Colors.black87,
                 ),
               ),
-              const Icon(Icons.keyboard_arrow_down_rounded,
-                  color: Colors.grey),
+              const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey),
             ],
           ),
         ),
@@ -50,7 +49,6 @@ class CustomDropdown extends StatelessWidget {
     );
   }
 
-  /// Custom dropdown popup
   void _showCustomDropdown(BuildContext context) {
     showDialog(
       context: context,
@@ -61,9 +59,7 @@ class CustomDropdown extends StatelessWidget {
             color: Colors.transparent,
             child: Container(
               width: MediaQuery.of(context).size.width * 0.85,
-              constraints: const BoxConstraints(
-                maxHeight: 350,
-              ),
+              constraints: const BoxConstraints(maxHeight: 350),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -73,7 +69,7 @@ class CustomDropdown extends StatelessWidget {
                     color: Colors.black.withOpacity(0.08),
                     blurRadius: 20,
                     offset: const Offset(0, 8),
-                  )
+                  ),
                 ],
               ),
               child: ListView.builder(
@@ -90,7 +86,9 @@ class CustomDropdown extends StatelessWidget {
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 14, horizontal: 12),
+                        vertical: 14,
+                        horizontal: 12,
+                      ),
                       decoration: BoxDecoration(
                         color: isSelected
                             ? Colors.grey.shade200

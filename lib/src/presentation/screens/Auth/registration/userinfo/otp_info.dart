@@ -37,7 +37,6 @@ class OtpInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 🔙 Back Button
                 Row(
                   children: [
                     GestureDetector(
@@ -71,7 +70,6 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                // 🖼️ Keyboy Image
                 SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.35,
@@ -91,7 +89,6 @@ class OtpInfo extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
 
-                // 🔢 OTP Input (Pinput)
                 Center(
                   child: Pinput(
                     length: 6,
@@ -121,7 +118,6 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // 🔁 Resend text
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
@@ -136,7 +132,6 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
-                // ✅ Verify Button
                 Obx(
                   () => ButtonOne(
                     title: "Verify OTP",

@@ -21,7 +21,6 @@ class Home extends StatelessWidget {
           children: [
             const SizedBox(height: 30),
 
-            // Greeting
             Row(
               children: [
                 const CircleAvatar(
@@ -55,7 +54,6 @@ class Home extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            // Banner
             Container(
               height: 130,
               decoration: BoxDecoration(
@@ -97,7 +95,6 @@ class Home extends StatelessWidget {
             const CalendarWidget(),
             const SizedBox(height: 20),
 
-            // Subject Cards (DIRECT CALLS)
             ListView(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
