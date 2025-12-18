@@ -37,7 +37,6 @@ class OtpInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 🔙 Back Button
                 Row(
                   children: [
                     GestureDetector(
@@ -71,8 +70,7 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                // 🖼️ Keyboy Image
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.35,
                   child: Center(
@@ -91,7 +89,6 @@ class OtpInfo extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
 
-                // 🔢 OTP Input (Pinput)
                 Center(
                   child: Pinput(
                     length: 6,
@@ -99,7 +96,10 @@ class OtpInfo extends StatelessWidget {
                     defaultPinTheme: defaultPinTheme,
                     focusedPinTheme: defaultPinTheme.copyWith(
                       decoration: BoxDecoration(
-                        border: Border.all(color: controller.activeColor, width: 2),
+                        border: Border.all(
+                          color: controller.activeColor,
+                          width: 2,
+                        ),
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
@@ -118,7 +118,6 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // 🔁 Resend text
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
@@ -133,18 +132,16 @@ class OtpInfo extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
-                // ✅ Verify Button
                 Obx(
-                      () => ButtonOne(
+                  () => ButtonOne(
                     title: "Verify OTP",
                     onTap: controller.otpValid.value
                         ? () {
-                      debugPrint("OTP: ${controller.getOtp()}");
-                      // TODO: Add your OTP verification logic here
-                    }
+                            debugPrint("OTP: ${controller.getOtp()}");
+                          }
                         : () {
-                        Get.to(() => Educationifo());
-                    },
+                            Get.to(() => Educationifo());
+                          },
                   ),
                 ),
               ],

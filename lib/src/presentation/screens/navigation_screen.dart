@@ -51,7 +51,6 @@ class NavigationScreen extends StatelessWidget {
         }),
       ),
 
-      // 👇 Bottom Navigation Bar
       bottomNavigationBar: Obx(() {
         return Container(
           height: 70,
