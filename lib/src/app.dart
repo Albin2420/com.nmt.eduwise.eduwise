@@ -1,6 +1,4 @@
-import 'package:eduwise/src/presentation/screens/HomeScreen/home.dart';
-import 'package:eduwise/src/presentation/screens/HomeScreen/home_screen.dart';
-import 'package:eduwise/src/presentation/screens/Splash/splash_screen.dart';
+import 'package:eduwise/src/presentation/screens/Auth/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -15,7 +13,7 @@ class Eduwise extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
       // home: Splash(),
-      home: HomeScreen(),
+      home: LoginAuth(),
     );
   }
 }

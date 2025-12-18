@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '../../controller/Home/home_controller.dart';
-import '../../controller/Navigation/navigation_controller.dart';
-import 'home.dart';
+import '../controller/Home/home_controller.dart';
+import '../controller/Navigation/navigation_controller.dart';
+import 'HomeScreen/home.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class NavigationScreen extends StatelessWidget {
+  const NavigationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
