@@ -1,72 +1,44 @@
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'dart:developer';
 
-// class SecureStorageService {
-//   SecureStorageService._();
-//   static final SecureStorageService instance = SecureStorageService._();
-//   factory SecureStorageService() => instance;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-//   final FlutterSecureStorage _secureStorage = FlutterSecureStorage();
+class StorageService {
+  static final _storage = FlutterSecureStorage();
 
-//   // iOS options
-//   final IOSOptions _iosOptions = IOSOptions(
-//     accessibility: KeychainAccessibility.first_unlock,
-//   );
+  static const _accessTokenKey = 'access_token';
+  static const _refreshTokenKey = 'refresh_token';
 
-//   // Android options
-//   final AndroidOptions _androidOptions = AndroidOptions(
-//     encryptedSharedPreferences: true,
-//   );
+  static Future<void> saveTokens({
+    String? accessToken,
+    String? refreshToken,
+  }) async {
+    try {
+      await _storage.write(key: _accessTokenKey, value: accessToken);
+      await _storage.write(key: _refreshTokenKey, value: refreshToken);
+    } catch (e) {
+      log("⚠️ error in saveTokens():$e");
+    }
+  }
 
-//   // Write a value
-//   Future<void> write(String key, String value) async {
-//     await _secureStorage.write(
-//       key: key,
-//       value: value,
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
+  static Future<String?> getAccessToken() async {
+    try {
+      return await _storage.read(key: _accessTokenKey);
+    } catch (e) {
+      log("⚠️ error in getAccessToken():$e");
+      return null;
+    }
+  }
 
-//   // Read a value
-//   Future<String?> read(String key) async {
-//     return await _secureStorage.read(
-//       key: key,
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
+  static Future<String?> getRefreshToken() async {
+    try {
+      return await _storage.read(key: _refreshTokenKey);
+    } catch (e) {
+      log("⚠️ error in getRefreshToken():$e");
+      return null;
+    }
+  }
 
-//   // Delete a value
-//   Future<void> delete(String key) async {
-//     await _secureStorage.delete(
-//       key: key,
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
-
-//   // Check if a key exists
-//   Future<bool> containsKey(String key) async {
-//     return await _secureStorage.containsKey(
-//       key: key,
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
-
-//   // Read all values
-//   Future<Map<String, String>> readAll() async {
-//     return await _secureStorage.readAll(
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
-
-//   // Delete all values
-//   Future<void> deleteAll() async {
-//     await _secureStorage.deleteAll(
-//       iOptions: _iosOptions,
-//       aOptions: _androidOptions,
-//     );
-//   }
-// }
+  static Future<void> clear() async {
+    await _storage.deleteAll();
+  }
+}
