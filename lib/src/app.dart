@@ -1,4 +1,4 @@
-import 'package:eduwise/src/presentation/screens/screens.dart';
+import 'package:eduwise/src/presentation/screens/Splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
