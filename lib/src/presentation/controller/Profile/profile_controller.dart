@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ProfileController extends GetxController {
   // User data
@@ -54,21 +53,7 @@ class ProfileController extends GetxController {
   }
 
   // Pick profile image
-  Future<void> pickImage() async {
-    final ImagePicker picker = ImagePicker();
-    try {
-      final XFile? pickedFile = await picker.pickImage(
-        source: ImageSource.gallery,
-        imageQuality: 80,
-      );
-      if (pickedFile != null) {
-        profileImage.value = pickedFile.path;
-        debugPrint('🖼️ Image selected: ${profileImage.value}');
-      }
-    } catch (e) {
-      debugPrint('Error picking image: $e');
-    }
-  }
+
 
   // Manage focus change
   void setFocusedField(String fieldName) {
