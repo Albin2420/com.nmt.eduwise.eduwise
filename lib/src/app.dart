@@ -12,7 +12,7 @@ class Eduwise extends StatelessWidget {
       title: 'Eduwise',
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
-      home: Splash(),
+      home: SplashScreen(),
     );
   }
 }
