@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NavigationController extends GetxController {
@@ -8,9 +9,16 @@ class NavigationController extends GetxController {
     try {
       selectedIndex.value = index;
     } catch (e) {
-      log("‼️ Error in goTo():$e");
+      log("‼️ Error in goTo(): $e");
     }
   }
-
-  void func() {}
+  Color get backgroundColor {
+    if (selectedIndex.value == 1) {
+      return const Color(0xFF7B61FF);
+    } else if (selectedIndex.value == 2) {
+      return const Color(0xFFF3F4FF);
+    } else {
+      return Colors.white;
+    }
+  }
 }

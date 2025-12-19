@@ -5,6 +5,7 @@ import '../controller/Navigation/navigation_controller.dart';
 import 'HomeScreen/home.dart';
 import 'Notifications/notification_page.dart';
 import 'Profile/profile_page.dart';
+import 'QuestionPage/question_page.dart';
 
 class NavigationScreen extends StatelessWidget {
   const NavigationScreen({super.key});
@@ -30,15 +31,14 @@ class NavigationScreen extends StatelessWidget {
 
     return Obx(() {
       return Scaffold(
-        backgroundColor: navController.selectedIndex.value == 1?Color(0xFF7B61FF):Colors.white,
+        backgroundColor: navController.backgroundColor,
         body: SafeArea(
           child: IndexedStack(
             index: navController.selectedIndex.value,
             children: const [
               Home(),
               NotificationPage(),
-              // QuestionPage(),
-              SizedBox(),
+              QuestionPage(),
               ProfilePage(),
             ],
           ),

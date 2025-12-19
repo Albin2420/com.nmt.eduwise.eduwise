@@ -16,7 +16,7 @@ class EditProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4FF),
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(), // hide keyboard
+        onTap: () => FocusScope.of(context).unfocus(),
         child: SafeArea(
           child: Stack(
             children: [
@@ -61,7 +61,7 @@ class EditProfilePage extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new, size: 18),
                         // 🟣 Navigate back to HomeScreen
-                        onPressed: () => Get.offAll(() => const NavigationScreen()),
+                        onPressed: () => Get.back(),
                         padding: EdgeInsets.zero,
                       ),
                     ),
