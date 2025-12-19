@@ -9,7 +9,7 @@ class LoginAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Get.put(AuthenticationController());
+    Get.put(AuthenticationController());
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

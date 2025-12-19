@@ -3,14 +3,14 @@ import 'package:eduwise/src/presentation/screens/navigation_screen.dart';
 import 'package:eduwise/src/presentation/widgets/button_one.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/Auth/authentication_controller.dart';
+import '../../../../controller/Auth/education_info_controller.dart';
 
 class Educationifo extends StatelessWidget {
   const Educationifo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<AuthenticationController>();
+    final controller = Get.put(EducationInfoController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
