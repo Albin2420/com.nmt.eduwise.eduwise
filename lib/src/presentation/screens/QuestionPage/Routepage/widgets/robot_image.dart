@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import '../../../../controller/questionPage/question_controller.dart';
+import '../../../ExpaChat/expa_screen.dart';
 
 class RobotImage extends StatelessWidget {
   const RobotImage({super.key});
@@ -17,11 +18,11 @@ class RobotImage extends StatelessWidget {
               bottom: 20,
               child: GestureDetector(
                 onTap: () {
-                  // Get.to(
-                  //   () => ExpaScreen(),
-                  //   transition: Transition.zoom,
-                  //   duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    () => ExpaScreen(),
+                    transition: Transition.zoom,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 child: Container(
                   decoration: BoxDecoration(
