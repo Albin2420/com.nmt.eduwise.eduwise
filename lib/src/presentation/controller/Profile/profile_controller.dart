@@ -17,8 +17,7 @@ class ProfileController extends GetxController {
   final lastNameController = TextEditingController();
   final phoneNumberController = TextEditingController();
 
-  // Focus tracking — to dynamically change border color
-  var focusedField = ''.obs; // holds the label of the active input
+  var focusedField = ''.obs;
 
   @override
   void onInit() {
