@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:eduwise/src/presentation/screens/Profile/pageRoute/widget/reactive_input_field.dart';
-import 'package:eduwise/src/presentation/screens/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -98,7 +97,7 @@ class EditProfilePage extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         Obx(
-                              () => Container(
+                          () => Container(
                             width: 123,
                             height: 123,
                             decoration: BoxDecoration(
@@ -120,13 +119,13 @@ class EditProfilePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                               child: controller.profileImage.value.isNotEmpty
                                   ? Image.file(
-                                File(controller.profileImage.value),
-                                fit: BoxFit.cover,
-                              )
+                                      File(controller.profileImage.value),
+                                      fit: BoxFit.cover,
+                                    )
                                   : Image.asset(
-                                'assets/images/pic.png',
-                                fit: BoxFit.cover,
-                              ),
+                                      'assets/images/pic.png',
+                                      fit: BoxFit.cover,
+                                    ),
                             ),
                           ),
                         ),
