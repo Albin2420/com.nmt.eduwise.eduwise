@@ -14,10 +14,10 @@ class AppStartupController extends GetxController {
 
   Future<void> checkToken() async {
     try {
-      final acctoken = await StorageService.getAccessToken();
+      final accesstoken = await StorageService.getAccessToken();
       final refreshtoken = await StorageService.getRefreshToken();
 
-      if (acctoken != null && refreshtoken != null) {
+      if (accesstoken != null && refreshtoken != null) {
         Get.offAll(() => NavigationScreen());
       } else {
         Get.offAll(() => LoginAuth());
